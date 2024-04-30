@@ -1,0 +1,35 @@
+МОИ ЗАМЕТКИ ДЛЯ ВЫПОЛНЕНИЯ РАБОТЫ
+
+Выгрузка изображений из VK в Yandex.Disk
+
+VK API
+Yandex.Disk Api
+
+Библиотека Semantik UI.
+
+Файлы, с которыми будем работать:
+
+-createRequest.js
+
+
+-VK.js
+метод get - получает изображения по id пользователя
+callback - функция, которую нужно будет выполнять
+
+-Yandex.js
+
+
+-BaseModal.js
+
+
+-FileUploaderModal.js
+
+
+-PreviewModal.js
+
+
+-ImageViewer.js
+
+
+-SearchBlock.js
+
