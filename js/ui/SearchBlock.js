@@ -7,7 +7,7 @@ class SearchBlock {
     static images = null;
 
     constructor(element) {
-        this.searchBlock = element;
+        // console.log(element)
         SearchBlock.searchElement = element;
         this.registerEvents();
     }
@@ -30,25 +30,22 @@ class SearchBlock {
             SearchBlock.images = args;
         }
 
-        SearchBlock.searchElement.querySelector('.replace').addEventListener('click', () => {
-            const vkId = SearchBlock.searchElement.getElementsByTagName('input')[0].value;
-            if (vkIdCheck(vkId)) {
-                VK.get(vkId, get_callback);
-                setTimeout(() => {
-                    App.imageViewer.clear();
-                    App.imageViewer.drawImages(SearchBlock.images);
-                }, 1000);
+        SearchBlock.searchElement.addEventListener('click', (e) => {
+            if (e.target.tagName.toLowerCase() === "button") {
+                const vkId = SearchBlock.searchElement.getElementsByTagName('input')[0].value;
+                if (vkIdCheck(vkId)) {
+                    if (e.target.classList.contains('replace')) {
+                        App.imageViewer.clear();
+                    }
+                    // if (e.target.classList.contains('add')) {
+                    // }
+                    VK.get(vkId, get_callback);
+                    setTimeout(() => {
+                        App.imageViewer.drawImages(SearchBlock.images);
+                    }, 1000);
+                }
             }
         })
-        SearchBlock.searchElement.querySelector('.add').addEventListener('click', () => {
-            const vkId = SearchBlock.searchElement.getElementsByTagName('input')[0].value;
-            SearchBlock.searchElement.getElementsByTagName('input')[0].value;
-            if (vkIdCheck(vkId)) {
-                VK.get(vkId, get_callback);
-                setTimeout(() => {
-                    App.imageViewer.drawImages(SearchBlock.images);
-                }, 1000);
-            }
-        })
+
     }
 }
